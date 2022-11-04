@@ -63,8 +63,7 @@ print("\n######## Resultados Finales del Sorteo ########\n")
 for i in range(cantParticipantes):
     participante = random.choice(participantes)
     participantes.remove(participante)
-    print(
-        f"--> Participante: {participante.upper()} - Puntos: {splitRamas[i]}", end=" ")
+    print(f"-> Participante: {participante.upper()} - Puntos: {splitRamas[i]}")
     #print(f"Puntos: {splitRamas[i]}")
     print("\n")
 
