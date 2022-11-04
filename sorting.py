@@ -2,6 +2,7 @@ from win10toast import ToastNotifier
 import time
 import random
 
+toaster = ToastNotifier()
 
 participantes = []
 
@@ -11,10 +12,10 @@ ramasPrincipales = []
 for i in range(cantRamas):
     ramasPrincipales.append(i + 1)
 
-print(ramasPrincipales[:])
+# print(ramasPrincipales[:])
 residuo = (len(ramasPrincipales) % cantParticipantes)
 maximo = int(len(ramasPrincipales) / cantParticipantes)
-print(f"maximo: {maximo}, residuo: {residuo}")
+#print(f"maximo: {maximo}, residuo: {residuo}")
 
 
 ramasTomadas = []
@@ -37,9 +38,9 @@ for i in range(cantParticipantes):
 if (residuo != 0):
     print(ramasTomadas[limSup:limSup+residuo])
     splitResiduo.append(ramasTomadas[limSup:limSup+residuo])
-print("Showing split's: ")
-print(splitRamas[:])
-print(splitResiduo[:])
+#print("Showing split's: ")
+# print(splitRamas[:])
+# print(splitResiduo[:])
 
 # Reasignando residuos a las otras listas
 if (residuo != 0):
@@ -48,19 +49,21 @@ if (residuo != 0):
         splitRamas[i].append(rand)
         splitResiduo[0].remove(rand)
 
-print("Showing After Order: ")
-print(splitRamas[:])
-print(splitResiduo[:])
+#print("Showing After Order: ")
+# print(splitRamas[:])
+# print(splitResiduo[:])
 
-'''for i in range(1, cantParticipantes+1):
-    print(f"{i}", end=" ")'''
+for i in range(cantParticipantes):
+    nombre = input(f"Ingrese el nombre del participante N# {i+1}: ")
+    participantes.append(nombre)
 
+print("\n######## Resultados Finales del Sorteo ########\n")
+for i in range(cantParticipantes):
+    participante = random.choice(participantes)
+    participantes.remove(participante)
+    print(
+        f"--> Participante: {participante.upper()} - Puntos: {splitRamas[i]}", end=" ")
+    #print(f"Puntos: {splitRamas[i]}")
+    print("\n")
 
-'''adition = input("Desea agregar ramas secundarias? (y/n): ")
-if adition == "y":
-    cantSecundarias = int(input("Ingrese la cantidad de Ramas Secundarias: "))
-    for i in range(cantSecundarias):
-        valorSecundaria = input("Ingrese el valor de la rama secundaria:")
-        ramasPrincipales.append(valorSecundaria)
-else:
-    pass'''
+#toaster.show_toast("Sorting", "El sorteo ha finalizado", duration=5)
