@@ -24,8 +24,14 @@ for i in range(len(ramasPrincipales)):
         ramaAleatoria = random.choice(ramasPrincipales)
     ramasTomadas.append(ramaAleatoria)
 
-print(ramasTomadas[:])
-
+limInf = 0
+limSup = 0
+print(f"Rama Sorteada: {ramasTomadas}")
+for i in range(cantParticipantes):
+    limSup = limInf+maximo
+    print(ramasTomadas[limInf:limSup])
+    limInf = limSup
+print(ramasTomadas[limSup:limSup+residuo])
 
 '''for i in range(1, cantParticipantes+1):
     print(f"{i}", end=" ")'''
