@@ -27,11 +27,30 @@ for i in range(len(ramasPrincipales)):
 limInf = 0
 limSup = 0
 print(f"Rama Sorteada: {ramasTomadas}")
+splitRamas = []
+splitResiduo = []
 for i in range(cantParticipantes):
     limSup = limInf+maximo
     print(ramasTomadas[limInf:limSup])
+    splitRamas.append(ramasTomadas[limInf:limSup])
     limInf = limSup
-print(ramasTomadas[limSup:limSup+residuo])
+if (residuo != 0):
+    print(ramasTomadas[limSup:limSup+residuo])
+    splitResiduo.append(ramasTomadas[limSup:limSup+residuo])
+print("Showing split's: ")
+print(splitRamas[:])
+print(splitResiduo[:])
+
+# Reasignando residuos a las otras listas
+if (residuo != 0):
+    for i in range(residuo):
+        rand = random.choice(splitResiduo[0])
+        splitRamas[i].append(rand)
+        splitResiduo[0].remove(rand)
+
+print("Showing After Order: ")
+print(splitRamas[:])
+print(splitResiduo[:])
 
 '''for i in range(1, cantParticipantes+1):
     print(f"{i}", end=" ")'''
