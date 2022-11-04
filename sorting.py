@@ -2,6 +2,8 @@ from win10toast import ToastNotifier
 import time
 import random
 
+# Author: Luis Balarezo
+
 toaster = ToastNotifier()
 
 participantes = []
@@ -66,4 +68,4 @@ for i in range(cantParticipantes):
     #print(f"Puntos: {splitRamas[i]}")
     print("\n")
 
-#toaster.show_toast("Sorting", "El sorteo ha finalizado", duration=5)
+toaster.show_toast("Sorting", "Sorteo Finalizado", duration=5)
